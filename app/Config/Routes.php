@@ -21,6 +21,7 @@ $routes->setAutoRoute('true');
 //routes pour login------------------------------------------------------------
 $routes->match(['get', 'post'], '/', 'login\login::index');
 $routes->get('dashbord/dashbord','dashbord\Dashbord::index');
+$routes->get('dashbord/get_data','dashbord\Dashbord::get_data');
 $routes->get('Calender_Conge','dashbord\Calender_Conge::index');
 $routes->post('login/login','login\login::login');
 $routes->get('logout','login\login::logout');

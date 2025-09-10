@@ -19,7 +19,7 @@ class users extends BaseController
     $fonction = $db->query("SELECT * FROM fonction_poste");
     $data['fonction'] = $fonction->getResult();
 
-    $affectation = $db->query("SELECT * FROM agence");
+    $affectation = $db->query("SELECT * FROM agence WHERE EST_ACTIVE=1");
     $data['affectation'] = $affectation->getResult();
 
   	return view("App\Views\users\user_list",$data);

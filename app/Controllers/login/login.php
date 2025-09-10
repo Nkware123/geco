@@ -19,7 +19,7 @@ class login extends BaseController
     $username=$this->request->getPost('username');
     $password=$this->request->getPost('password');
     $db =\Config\Database::connect();
-    $query = $db->query("SELECT * FROM `users` AS `user` join `fonction_poste` AS `poste` on poste.ID_FONCTION=user.ID_FONCTION join `agence` AS `ag` ON ag.ID_AGENCE=user.ID_AGENCE where USERNAME='".$username."' AND PASSWORD=".$password." AND EST_ACTIVE=1");
+    $query = $db->query("SELECT * FROM users AS `user` join `fonction_poste` AS `poste` on poste.ID_FONCTION=user.ID_FONCTION join `agence` AS `ag` ON ag.ID_AGENCE=user.ID_AGENCE where USERNAME='".$username."' AND PASSWORD=".$password." AND user.EST_ACTIVE=1");
     $result = $query->getRow();
     if (!empty($result)) 
     {
@@ -33,7 +33,7 @@ class login extends BaseController
         'function_id'=>$result->ID_FONCTION,
       ];
       session()->set($session);
-      return view('App\Views\dashbord\Dashbord_view',$data);
+      return redirect('dashbord/dashbord');
     }else{
       $data['status']='Nom d\'utilisateur ou mot de passe incorrect.';
       return view('App\Views\index',$data);

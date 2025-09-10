@@ -5,8 +5,13 @@
 
   <main id="main" class="main">
 
-    <div class="pagetitle">
-      <h1>Demande</h1>      
+    <div class="pagetitle row">
+      <div class="col-md-10">
+        <h1>Demande</h1>
+      </div>
+      <div class="col-md-2">
+        <a style="float: left;" href="<?=base_url('demande/liste')?>" class="btn btn-primary" ><i class="bi bi-person-plus-fill"></i>Retour</a>
+      </div> 
     </div><!-- End Page Title -->
 
     <section class="section">

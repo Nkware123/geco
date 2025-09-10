@@ -29,13 +29,7 @@
   <!-- Template Main CSS File -->
   <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
   
-  <!-- =======================================================
-  * Template Name: NiceAdmin
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Updated: Apr 20 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <!-- ======= Sidebar ======= -->
 <?php echo view('header.php')?>
@@ -46,7 +40,7 @@
       <li class="nav-item">
         <a class="nav-link <?php if($menu != 'dashbord' ) echo 'collapsed' ?>" href="<?=base_url('dashbord/dashbord')?>">
           <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
+          <span>Tableau de bord</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
@@ -65,15 +59,15 @@
       <!-- End type conge Nav -->
 
       <li class="nav-item">
-        <a class="nav-link <?php if($menu != 'demande' ) echo 'collapsed' ?>" href="<?=base_url('demande/formulaire')?>">
+        <a class="nav-link <?php if($menu != 'demande' ) echo 'collapsed' ?>" href="<?=base_url('demande/liste')?>">
           <i class="bi bi-pencil-fill"></i><span>Demande</span>
         </a>
       </li>
       <!-- End users Nav -->
 
       <li class="nav-item">
-        <a class="nav-link <?php if($menu != 'branche' ) echo 'collapsed' ?>" href="<?=base_url('user_liste')?>">
-          <i class="bi bi-house"></i><span>Branches</span>
+        <a class="nav-link <?php if($menu != 'branche' ) echo 'collapsed' ?>" href="<?=base_url('branche')?>">
+          <i class="bi bi-house"></i><span>Agences</span>
         </a>
       </li>
       <!-- End users Nav -->

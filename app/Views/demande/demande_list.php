@@ -16,7 +16,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Liste des demandes</h5>
-              <!-- <button style="float: left;" type="button" class="btn btn-primary" onclick="showmodal()"><i class="bi bi-person-plus-fill"></i> Nouvel utilisateur</button><br><br> -->
+              <a style="float: left;" href="<?=base_url('demande/formulaire')?>" class="btn btn-primary" ><i class="bi bi-person-plus-fill"></i>Nouvelle demande</a><br><br>
               <!-- Table with stripped rows -->
               <div class="table-responsive container ">
                 <table id="myTable" class="table table-striped">

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 06 août 2025 à 17:21
--- Version du serveur :  10.4.11-MariaDB
--- Version de PHP : 7.4.5
+-- Généré le : lun. 08 sep. 2025 à 10:52
+-- Version du serveur : 10.4.32-MariaDB
+-- Version de PHP : 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,16 +29,30 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `agence` (
   `ID_AGENCE` int(11) NOT NULL,
-  `DESC_AGENCE` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `DESC_AGENCE` varchar(100) NOT NULL,
+  `EST_ACTIVE` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `agence`
 --
 
-INSERT INTO `agence` (`ID_AGENCE`, `DESC_AGENCE`) VALUES
-(1, 'Siège'),
-(2, 'Cotebu');
+INSERT INTO `agence` (`ID_AGENCE`, `DESC_AGENCE`, `EST_ACTIVE`) VALUES
+(1, 'Agence BUYENZI', 1),
+(2, 'Agence KAMENGE', 1),
+(3, 'Agence GITEGA', 1),
+(4, 'Agence BUBANZA', 1),
+(5, 'Agence MUYINGA', 1),
+(6, 'Agence GISHUBI', 1),
+(7, 'Agence BCM', 1),
+(8, 'Agence JENDA', 1),
+(9, 'Guichet Boulevard de l\'Uprona', 1),
+(10, 'Guichet TORA', 1),
+(11, 'Guichet RWEGURA', 1),
+(12, 'Guichet COTEBU', 1),
+(13, 'Guichet MURAMVYA', 1),
+(14, 'Guichet NGOZI', 1),
+(15, 'Agence Siège', 1);
 
 -- --------------------------------------------------------
 
@@ -53,15 +67,21 @@ CREATE TABLE `demande_conge` (
   `ID_ETAPE_VALIDATION` tinyint(1) NOT NULL,
   `DATE_DEBUT` date NOT NULL,
   `DATE_FIN` date NOT NULL,
-  `DATE_INSERTION` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `DATE_INSERTION` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `demande_conge`
 --
 
 INSERT INTO `demande_conge` (`ID_DEMANDE`, `ID_USER`, `ID_TYPE_CONGE`, `ID_ETAPE_VALIDATION`, `DATE_DEBUT`, `DATE_FIN`, `DATE_INSERTION`) VALUES
-(1, 1, 1, 4, '2025-08-06', '2025-08-09', '2025-08-06');
+(1, 1, 1, 4, '2025-08-06', '2025-08-09', '2025-08-06 00:00:00'),
+(2, 1, 1, 4, '2025-08-06', '2025-08-09', '2025-08-06 00:00:00'),
+(3, 1, 1, 4, '2025-08-06', '2025-08-09', '2025-08-06 00:00:00'),
+(4, 1, 1, 4, '2025-08-06', '2025-08-09', '2025-08-06 00:00:00'),
+(5, 1, 1, 4, '2025-08-06', '2025-08-09', '2025-08-06 00:00:00'),
+(6, 2, 2, 4, '2025-08-06', '2025-08-09', '2025-08-06 00:00:00'),
+(7, 2, 1, 3, '2025-09-10', '2025-09-11', '2025-09-08 10:34:48');
 
 -- --------------------------------------------------------
 
@@ -73,7 +93,7 @@ CREATE TABLE `etape_fonction` (
   `ei` int(11) NOT NULL,
   `ID_ETAPE_VALIDATION` tinyint(1) NOT NULL,
   `ID_FONCTION` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `etape_fonction`
@@ -93,7 +113,7 @@ INSERT INTO `etape_fonction` (`ei`, `ID_ETAPE_VALIDATION`, `ID_FONCTION`) VALUES
 CREATE TABLE `etape_validation` (
   `ID_ETAPE_VALIDATION` tinyint(1) NOT NULL,
   `ID_ETAPE_SUIVANT` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `etape_validation`
@@ -114,7 +134,7 @@ INSERT INTO `etape_validation` (`ID_ETAPE_VALIDATION`, `ID_ETAPE_SUIVANT`) VALUE
 CREATE TABLE `fonction_poste` (
   `ID_FONCTION` int(11) NOT NULL,
   `DESC_FONCTION` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `fonction_poste`
@@ -136,7 +156,7 @@ CREATE TABLE `historique_demande` (
   `ID_USER` int(11) NOT NULL,
   `ID_ETAPE_VALIDATION` int(11) NOT NULL,
   `OBSERVATION` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `historique_demande`
@@ -144,7 +164,8 @@ CREATE TABLE `historique_demande` (
 
 INSERT INTO `historique_demande` (`HISTO_ID`, `ID_DEMANDE`, `ID_USER`, `ID_ETAPE_VALIDATION`, `OBSERVATION`) VALUES
 (1, 1, 1, 1, ''),
-(2, 1, 1, 2, 'ok');
+(2, 1, 1, 2, 'ok'),
+(3, 7, 2, 1, '');
 
 -- --------------------------------------------------------
 
@@ -156,14 +177,15 @@ CREATE TABLE `type_conge` (
   `ID_TYPE_CONGE` tinyint(1) NOT NULL,
   `DESC_TYPE_CONGE` varchar(50) NOT NULL,
   `EST_ACTIVE` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `type_conge`
 --
 
 INSERT INTO `type_conge` (`ID_TYPE_CONGE`, `DESC_TYPE_CONGE`, `EST_ACTIVE`) VALUES
-(1, 'Congé annuel', 1);
+(1, 'Congé annuel', 1),
+(2, 'Congé de circonstance', 1);
 
 -- --------------------------------------------------------
 
@@ -174,7 +196,7 @@ INSERT INTO `type_conge` (`ID_TYPE_CONGE`, `DESC_TYPE_CONGE`, `EST_ACTIVE`) VALU
 CREATE TABLE `type_decision` (
   `ID_TYPE_DECISION` tinyint(1) NOT NULL,
   `DESCR_TYPE_DECISION` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `type_decision`
@@ -200,14 +222,15 @@ CREATE TABLE `users` (
   `ID_AGENCE` int(11) NOT NULL,
   `PHOTO_PROFIL` varchar(100) NOT NULL,
   `EST_ACTIVE` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
 INSERT INTO `users` (`USER_ID`, `NOM_USER`, `PRENOM_USER`, `TELEPHONE`, `USERNAME`, `PASSWORD`, `ID_FONCTION`, `ID_AGENCE`, `PHOTO_PROFIL`, `EST_ACTIVE`) VALUES
-(1, 'NDERAGAKURA', 'Alain Charbel', '62003522', 'Alain', '12345', 1, 1, 'uploads/profils/689360c3c0762250806020347.jpg', 1);
+(1, 'NDERAGAKURA', 'Alain Charbel', '62003522', 'Alain', '12345', 1, 1, 'uploads/profils/689360c3c0762250806020347.jpg', 1),
+(2, 'Augustin', 'NKURUNZIZA', '62003522', 'Augustin', '12345', 1, 2, 'uploads/profils/689360c3c0762250806020347.jpg', 1);
 
 --
 -- Index pour les tables déchargées
@@ -275,13 +298,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `agence`
 --
 ALTER TABLE `agence`
-  MODIFY `ID_AGENCE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_AGENCE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `demande_conge`
 --
 ALTER TABLE `demande_conge`
-  MODIFY `ID_DEMANDE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_DEMANDE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `etape_fonction`
@@ -305,13 +328,13 @@ ALTER TABLE `fonction_poste`
 -- AUTO_INCREMENT pour la table `historique_demande`
 --
 ALTER TABLE `historique_demande`
-  MODIFY `HISTO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `HISTO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `type_conge`
 --
 ALTER TABLE `type_conge`
-  MODIFY `ID_TYPE_CONGE` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_TYPE_CONGE` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `type_decision`
@@ -323,7 +346,7 @@ ALTER TABLE `type_decision`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `USER_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
