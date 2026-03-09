@@ -1,0 +1,74 @@
+INFO - 2026-03-09 05:39:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 05:39:37 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 403.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(377): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\header.php(24): base_url(null)
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\header.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('header.php', [], true)
+ 7 APPPATH\Views\sidebar.php(35): view('header.php')
+ 8 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\sidebar.php')
+ 9 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('sidebar.php', [], true)
+11 APPPATH\Views\demande\demande_list.php(4): view('sidebar.php')
+12 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\demande\\demande_list.php')
+13 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+14 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('App\\Views\\demande\\demande_list', [], true)
+15 APPPATH\Controllers\demande\demande.php(52): view('App\\Views\\demande\\demande_list', [...])
+16 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\demande\demande->liste()
+17 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\demande\demande))
+18 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 05:39:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 05:39:48 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 403.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(377): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\header.php(24): base_url(null)
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\header.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('header.php', [], true)
+ 7 APPPATH\Views\sidebar.php(35): view('header.php')
+ 8 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\sidebar.php')
+ 9 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('sidebar.php', [], true)
+11 APPPATH\Views\demande\demande_list.php(4): view('sidebar.php')
+12 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\demande\\demande_list.php')
+13 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+14 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('App\\Views\\demande\\demande_list', [], true)
+15 APPPATH\Controllers\demande\demande.php(52): view('App\\Views\\demande\\demande_list', [...])
+16 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\demande\demande->liste()
+17 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\demande\demande))
+18 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 05:39:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 05:39:52 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 403.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(377): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\header.php(24): base_url(null)
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\header.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('header.php', [], true)
+ 7 APPPATH\Views\sidebar.php(35): view('header.php')
+ 8 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\sidebar.php')
+ 9 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('sidebar.php', [], true)
+11 APPPATH\Views\demande\demande_list.php(4): view('sidebar.php')
+12 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\demande\\demande_list.php')
+13 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+14 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('App\\Views\\demande\\demande_list', [], true)
+15 APPPATH\Controllers\demande\demande.php(52): view('App\\Views\\demande\\demande_list', [...])
+16 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\demande\demande->liste()
+17 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\demande\demande))
+18 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 05:40:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 05:40:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 05:40:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 05:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 05:55:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.

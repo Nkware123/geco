@@ -63,12 +63,18 @@
                             <li>
                               <hr class="dropdown-divider">
                             </li>
+                            <?php
+                            if($value->ID_ETAPE_VALIDATION==2 && session()->get('user_id')==$value->USER_ID_HIERARCHI)
+                            {?>
                             <li>
                               <a class="dropdown-item d-flex align-items-center" href="#" onclick="decision(<?=$value->ID_DEMANDE?>,<?=$value->ID_ETAPE_VALIDATION?>)">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Décision</span>
                               </a>
                             </li>
+                            <?php
+                            }
+                            ?>
                           </ul>
                         </div></td>
                       </tr>

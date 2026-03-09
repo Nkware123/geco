@@ -18,11 +18,32 @@ class demande extends BaseController
         return view('demande\formulaire_demande_conge',$data);
     }
 
+    function get_jours_restants()
+    {
+        $ID_TYPE_CONGE = $this->request->getPost('ID_TYPE_CONGE');
+        $db =\Config\Database::connect();
+
+        $get_conge = $db->query("SELECT HAS_JOURS_BASE, NOMBRE_JOURS_BASE FROM type_conge WHERE ID_TYPE_CONGE=".$ID_TYPE_CONGE);
+        $conge = $get_conge->getRow();
+        if($conge->HAS_JOURS_BASE==1)
+        {
+            $query_jours_restants = $db->query("SELECT SUM(NOMBRE_JOURS_RESTANT) AS NB_JOURS, SUM(NOMBRE_JOURS_DEMANDE) AS JOURS_PRIS FROM demande_conge WHERE ID_USER=".session()->get('user_id')." AND STATUS_FINAL=1 AND ID_TYPE_CONGE=".$ID_TYPE_CONGE);
+            $result = $query_jours_restants->getRow();
+            $jours_restants = $conge->NOMBRE_JOURS_BASE - $result->JOURS_PRIS;
+            $jours_pris=!empty($result->JOURS_PRIS) ? $result->JOURS_PRIS : 0;
+            echo json_encode(array('jours_restants' => $jours_restants,'total' => $conge->NOMBRE_JOURS_BASE, 'jours_pris' => $jours_pris));
+        }
+        else
+        {
+            echo json_encode(array('jours_restants' => 'N/A', 'jours_pris' => 'N/A'));
+        }       
+    }
+
     public function liste()
     {
         $data = $this->urichk();
         $db =\Config\Database::connect();
-        $query = $db->query("SELECT * FROM demande_conge as demande join users ON users.USER_ID=demande.ID_USER join type_conge typ ON typ.ID_TYPE_CONGE=demande.ID_TYPE_CONGE join etape_validation etap on etap.ID_ETAPE_VALIDATION=demande.ID_ETAPE_VALIDATION WHERE demande.ID_ETAPE_VALIDATION IN (SELECT etape_fonction.ID_ETAPE_VALIDATION FROM etape_fonction WHERE etape_fonction.ID_FONCTION=".session()->get('function_id').")");
+        $query = $db->query("SELECT * FROM demande_conge as demande join users ON users.USER_ID=demande.ID_USER join type_conge typ ON typ.ID_TYPE_CONGE=demande.ID_TYPE_CONGE join etape_validation etap on etap.ID_ETAPE_VALIDATION=demande.ID_ETAPE_VALIDATION WHERE 1");
         $data['donnees'] = $query->getResult();
 
         $type_decision = $db->query("SELECT * FROM type_decision");
@@ -37,14 +58,22 @@ class demande extends BaseController
         $ID_TYPE_CONGE=$this->request->getPost('ID_TYPE_CONGE');
         $DATE_DEBUT=$this->request->getPost('DATE_DEBUT');
         $DATE_FIN=$this->request->getPost('DATE_FIN');
+        $NOMBRE_JOURS_RESTANT=$this->request->getPost('jours_restants');
+        $NOMBRE_JOURS_DEMANDE=$this->request->getPost('NOMBRE_JOURS_DEMANDE');
+        $MOTIF=$this->request->getPost('MOTIF');
+
+        if(empty($NOMBRE_JOURS_RESTANT))
+        {
+            $NOMBRE_JOURS_RESTANT=0;
+        }
 
         $table='demande_conge';
-        $datacolumsinsert = array('ID_USER' => $ID_USER,'ID_TYPE_CONGE'=>$ID_TYPE_CONGE,'ID_ETAPE_VALIDATION' => 3,'DATE_DEBUT'=>$DATE_DEBUT,'DATE_FIN'=>$DATE_FIN);
+        $datacolumsinsert = array('ID_USER' => $ID_USER,'ID_TYPE_CONGE'=>$ID_TYPE_CONGE,'ID_ETAPE_VALIDATION' => 3,'NOMBRE_JOURS_DEMANDE'=>$NOMBRE_JOURS_DEMANDE,'NOMBRE_JOURS_RESTANT'=>$NOMBRE_JOURS_RESTANT,'DATE_DEBUT'=>$DATE_DEBUT,'DATE_FIN'=>$DATE_FIN);
         $ID_DEMANDE=$this->save($table,$datacolumsinsert); 
 
         //insertion dans historique
         $table='historique_demande';
-        $datacolumsinsert = array('ID_DEMANDE'=>$ID_DEMANDE,'ID_USER'=>$ID_USER,'ID_ETAPE_VALIDATION' => 1);
+        $datacolumsinsert = array('ID_DEMANDE'=>$ID_DEMANDE,'ID_USER'=>$ID_USER,'ID_ETAPE_VALIDATION' => 1,'OBSERVATION'=>$MOTIF);
         $this->save($table,$datacolumsinsert);
 
         return redirect('demande/liste');        
@@ -92,25 +121,25 @@ class demande extends BaseController
         $ID_ETAPE_VALIDATION=$this->request->getPost('ID_ETAPE_VALIDATION');
 
         $db =\Config\Database::connect();
-        $query = $db->query("SELECT ID_ETAPE_SUIVANT FROM etape_validation where ID_ETAPE_VALIDATION=".$ID_ETAPE_VALIDATION);
-        $type_conge = $query->getRow();
-
         if($ID_TYPE_DECISION==2)
         {
-            $ID_ETAPE_VALIDATION=0;
-        }
+            $cond="AND IS_CORRECTION=1";
+        }        
         elseif($ID_TYPE_DECISION==3)
         {
-            $ID_ETAPE_VALIDATION=2;
+            $cond="AND IS_CORRECTION=2";
         }
         else
         {
-            $ID_ETAPE_VALIDATION=$type_conge->ID_ETAPE_SUIVANT;
+            $cond="AND IS_CORRECTION=0";
         }
+
+        $query = $db->query("SELECT ID_ETAPE_SUIVANT FROM etape_validation_config where ID_ETAPE_ACTUEL=".$ID_ETAPE_VALIDATION." ".$cond);
+        $type_conge = $query->getRow();
 
         $table='demande_conge';
         $condition=array('ID_DEMANDE'=>$ID_DEMANDE);
-        $datacolumsinsert = array('ID_ETAPE_VALIDATION' => $ID_ETAPE_VALIDATION);
+        $datacolumsinsert = array('ID_ETAPE_VALIDATION' => $type_conge->ID_ETAPE_SUIVANT);
         $this->update($table,$condition,$datacolumsinsert);
 
         //insertion dans historique

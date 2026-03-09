@@ -43,6 +43,7 @@ $routes->get('demande/liste','demande\demande::liste');
 $routes->get('demande/view_update/(:any)','demande\demande::view_update/$1');
 $routes->post('demande/update_demande','demande\demande::update_demande');
 $routes->post('demande/decision','demande\demande::decision');
+$routes->post('demande/get_jours_restants','demande\demande::get_jours_restants');
 
 //type conge
 $routes->get('type_conge','type_conge\Type_Conge::liste');

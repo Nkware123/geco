@@ -29,6 +29,7 @@
                       <th>Téléphone</th>
                       <th>Fonction</th>
                       <th>Agence</th>
+                      <th>Chef Hiérarchique</th>
                       <th>Status</th>
                       <th>Option</th>
                     </tr>
@@ -55,6 +56,7 @@
                         <td>'.$value->TELEPHONE.'</td>
                         <td>'.$value->DESC_FONCTION.'</td>
                         <td>'.$value->DESC_AGENCE.'</td>
+                        <td>'.$value->NOM_USER_HIERARCHI.' '.$value->PRENOM_USER_HIERARCHI.'</td>
                         <td>'.$EST_ACTIVE.'</td>
                         <td><a class="btn" title="Modifier" onclick="get_data_update('.$value->USER_ID.')"><i class="bi bi-pencil-square"><i></a></td>
                       </tr>';
@@ -138,7 +140,7 @@
               <font id="error_ID_FONCTION" color="red"></font>
               <br>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-6">
               <label>Agence<font color="red">*</font></label>
               <select name="ID_LIEU_AFFECTATION" id="ID_LIEU_AFFECTATION" class="form-control">
                 <option value="">Sélectionner</option>
@@ -150,6 +152,20 @@
                 ?>
               </select>
               <font id="error_ID_LIEU_AFFECTATION" color="red"></font>
+              <br>
+            </div>
+            <div class="col-md-6">
+              <label>Chef hiérarchique</label>
+              <select name="USER_ID_HIERARCHI" id="USER_ID_HIERARCHI" class="form-control">
+                <option value="">Sélectionner</option>
+                <?php
+                foreach ($users as $value)
+                {
+                  echo '<option value="'.$value->USER_ID.'">'.$value->NOM_USER.' '.$value->PRENOM_USER.'</option>';
+                }
+                ?>
+              </select>
+              <font id="error_USER_ID_HIERARCHI" color="red"></font>
               <br>
             </div>
             <div class="col-md-12">
