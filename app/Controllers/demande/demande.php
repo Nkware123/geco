@@ -98,15 +98,23 @@ class demande extends BaseController
         $ID_TYPE_CONGE=$this->request->getPost('ID_TYPE_CONGE');
         $DATE_DEBUT=$this->request->getPost('DATE_DEBUT');
         $DATE_FIN=$this->request->getPost('DATE_FIN');
+        $NOMBRE_JOURS_RESTANT=$this->request->getPost('jours_restants');
+        $NOMBRE_JOURS_DEMANDE=$this->request->getPost('NOMBRE_JOURS_DEMANDE');
+        $MOTIF=$this->request->getPost('MOTIF');
+
+        if(empty($NOMBRE_JOURS_RESTANT))
+        {
+            $NOMBRE_JOURS_RESTANT=0;
+        }
 
         $table='demande_conge';
         $condition=array('ID_DEMANDE'=>$ID_DEMANDE);
-        $datacolumsinsert = array('ID_USER' => $ID_USER,'ID_TYPE_CONGE'=>$ID_TYPE_CONGE,'ID_ETAPE_VALIDATION' => 3,'DATE_DEBUT'=>$DATE_DEBUT,'DATE_FIN'=>$DATE_FIN);
+        $datacolumsinsert = array('ID_USER' => $ID_USER,'ID_TYPE_CONGE'=>$ID_TYPE_CONGE,'ID_ETAPE_VALIDATION' => 3,'DATE_DEBUT'=>$DATE_DEBUT,'DATE_FIN'=>$DATE_FIN,'NOMBRE_JOURS_RESTANT'=>$NOMBRE_JOURS_RESTANT,'NOMBRE_JOURS_DEMANDE'=>$NOMBRE_JOURS_DEMANDE);
         $this->update($table,$condition,$datacolumsinsert);
 
         //insertion dans historique
         $table='historique_demande';
-        $datacolumsinsert = array('ID_DEMANDE'=>$ID_DEMANDE,'ID_USER'=>$ID_USER,'ID_ETAPE_VALIDATION' => 2);
+        $datacolumsinsert = array('ID_DEMANDE'=>$ID_DEMANDE,'ID_USER'=>$ID_USER,'ID_ETAPE_VALIDATION' => 2,'OBSERVATION'=>$MOTIF);
         $this->save($table,$datacolumsinsert); 
 
         return redirect('demande/liste');
@@ -114,13 +122,24 @@ class demande extends BaseController
 
     public function decision()
     {
+        $db =\Config\Database::connect();
         $ID_DEMANDE=$this->request->getPost('ID_DEMANDE');
         $OBSERVATION=$this->request->getPost('OBSERVATION');
         $ID_USER=session()->get('user_id');
         $ID_TYPE_DECISION=$this->request->getPost('ID_TYPE_DECISION');
         $ID_ETAPE_VALIDATION=$this->request->getPost('ID_ETAPE_VALIDATION');
 
-        $db =\Config\Database::connect();
+        $nbr_rest=$db->query("SELECT NOMBRE_JOURS_DEMANDE, t.NOMBRE_JOURS_BASE FROM demande_conge d join type_conge t on d.ID_TYPE_CONGE=t.ID_TYPE_CONGE where ID_DEMANDE=".$ID_DEMANDE)->getRow();
+
+        if($ID_TYPE_DECISION==2)
+        {
+            $NOMBRE_JOURS_RESTANT=$nbr_rest->NOMBRE_JOURS_BASE - $nbr_rest->NOMBRE_JOURS_DEMANDE;
+        }
+        else
+        {
+            $NOMBRE_JOURS_RESTANT=0;
+        }
+
         if($ID_TYPE_DECISION==2)
         {
             $cond="AND IS_CORRECTION=1";
@@ -139,7 +158,7 @@ class demande extends BaseController
 
         $table='demande_conge';
         $condition=array('ID_DEMANDE'=>$ID_DEMANDE);
-        $datacolumsinsert = array('ID_ETAPE_VALIDATION' => $type_conge->ID_ETAPE_SUIVANT);
+        $datacolumsinsert = array('ID_ETAPE_VALIDATION' => $type_conge->ID_ETAPE_SUIVANT,'NOMBRE_JOURS_RESTANT' => $NOMBRE_JOURS_RESTANT);
         $this->update($table,$condition,$datacolumsinsert);
 
         //insertion dans historique

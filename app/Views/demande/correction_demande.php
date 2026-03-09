@@ -15,10 +15,12 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Correction du formulaire de demande de congé</h5>
-              <form id="MyForm" action="<?=base_url('demande/update_demande')?>" enctype='multipart/form-data' method='POST'>
+              <div class="row mb-2 mt-2 bg-light rounded border">
+                <h5 class="card-title text-center">Correction du formulaire de demande de congé</h5>
+              </div>
+              <form id="MyForm" class="form-horizontal mt-3 border rounded mb-3 row" action="<?=base_url('demande/update_demande')?>" enctype='multipart/form-data' method='POST'>
                 <input type="hidden" name="ID_DEMANDE" value="<?=$donnees->ID_DEMANDE?>">
-                <div class="row">
+                <div class="row mt-3">
                   <div class="col-md-6">
                     <label>Type de congé</label><font color="red">*</font>
                     <select name="ID_TYPE_CONGE" id="ID_TYPE_CONGE" class="form-control" onchange="get_jours_restants()">
@@ -54,18 +56,18 @@
 
                   <div class="col-md-6">
                     <label>Motif</label>
-                    <input type="text" name="MOTIF" id="MOTIF" class="form-control">
+                    <input type="text" name="MOTIF" id="MOTIF" class="form-control" value="">
                     <br>
                   </div>
                   <div class="col-md-6">
                     <label>Date début</label><font color="red">*</font>
-                    <input type="date" min="<?=date('Y-m-d')?>" name="DATE_DEBUT" id="DATE_DEBUT" class="form-control" value="<?=date('d-m-Y',strtotime($donnees->DATE_DEBUT))?>?>">
+                    <input type="date" min="<?=date('Y-m-d')?>" name="DATE_DEBUT" id="DATE_DEBUT" class="form-control" value="<?=date('Y-m-d',strtotime($donnees->DATE_DEBUT))?>" onchange="get_date()">
                     <font id="error_DATE_DEBUT" color="red"></font>
                     <br>
                   </div>
                   <div class="col-md-6">
                     <label>Date fin</label><font color="red">*</font>
-                    <input type="date" min="<?=date('Y-m-d')?>" name="DATE_FIN" id="DATE_FIN" class="form-control" value="<?=date('d-m-Y',strtotime($donnees->DATE_FIN))?>">
+                    <input type="date" min="<?=date('Y-m-d')?>" name="DATE_FIN" id="DATE_FIN" class="form-control" value="<?=date('Y-m-d',strtotime($donnees->DATE_FIN))?>" onchange="get_date()">
                     <font id="error_DATE_FIN" color="red"></font>
                     <br>
                   </div>

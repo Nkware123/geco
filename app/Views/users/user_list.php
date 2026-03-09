@@ -29,7 +29,7 @@
                       <th>Téléphone</th>
                       <th>Fonction</th>
                       <th>Agence</th>
-                      <th>Chef Hiérarchique</th>
+                      <th>Supérieur Hiérarchique</th>
                       <th>Status</th>
                       <th>Option</th>
                     </tr>
@@ -155,7 +155,7 @@
               <br>
             </div>
             <div class="col-md-6">
-              <label>Chef hiérarchique</label>
+              <label>Supérieur hiérarchique</label>
               <select name="USER_ID_HIERARCHI" id="USER_ID_HIERARCHI" class="form-control">
                 <option value="">Sélectionner</option>
                 <?php
@@ -294,6 +294,7 @@
           $('#TELEPHONE').val(data.TELEPHONE)
           $('#ID_FONCTION').val(data.ID_FONCTION)
           $('#ID_LIEU_AFFECTATION').val(data.ID_AGENCE)
+          $('#USER_ID_HIERARCHI').val(data.USER_ID_HIERARCHI)
           $('#basicModal').modal("show");
           $('#MyForm').attr("action",'<?=base_url('users/update_user')?>');
           $('#button2').attr("hidden",false);
