@@ -28,8 +28,6 @@
 
   <!-- Template Main CSS File -->
   <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
-  
-  <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <!-- ======= Sidebar ======= -->
 <?php echo view('header.php')?>

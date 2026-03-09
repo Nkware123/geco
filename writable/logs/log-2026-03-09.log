@@ -1662,3 +1662,319 @@ in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
 INFO - 2026-03-09 08:10:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
 INFO - 2026-03-09 08:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
 INFO - 2026-03-09 08:10:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:13:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:19:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:21:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:22:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:23:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:23:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:23:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:24:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:26:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:27:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:27:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:27:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:34:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:39:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:39:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:41:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:43:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:50:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:51:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:52:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:55:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:56:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 08:57:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 09:05:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 09:08:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 09:09:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 09:53:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 09:54:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 09:58:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 10:01:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 10:01:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 10:03:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 10:04:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 10:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:34:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 12:34:41 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 403.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(377): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\header.php(24): base_url(null)
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\header.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('header.php', [], true)
+ 7 APPPATH\Views\sidebar.php(35): view('header.php')
+ 8 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\sidebar.php')
+ 9 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('sidebar.php', [], true)
+11 APPPATH\Views\dashbord\Dashbord_view.php(3): view('sidebar.php')
+12 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\dashbord\\Dashbord_view.php')
+13 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+14 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('dashbord/Dashbord_view', [], true)
+15 APPPATH\Controllers\dashbord\Dashbord.php(31): view('dashbord/Dashbord_view', [...])
+16 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+17 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+18 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 12:35:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 12:35:57 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 403.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(377): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\header.php(24): base_url(null)
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\header.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('header.php', [], true)
+ 7 APPPATH\Views\sidebar.php(35): view('header.php')
+ 8 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\sidebar.php')
+ 9 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('sidebar.php', [], true)
+11 APPPATH\Views\dashbord\Dashbord_view.php(3): view('sidebar.php')
+12 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\dashbord\\Dashbord_view.php')
+13 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+14 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('dashbord/Dashbord_view', [], true)
+15 APPPATH\Controllers\dashbord\Dashbord.php(31): view('dashbord/Dashbord_view', [...])
+16 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+17 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+18 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 12:36:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 12:36:41 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 403.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(377): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\header.php(24): base_url(null)
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\header.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('header.php', [], true)
+ 7 APPPATH\Views\sidebar.php(35): view('header.php')
+ 8 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\sidebar.php')
+ 9 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('sidebar.php', [], true)
+11 APPPATH\Views\dashbord\Dashbord_view.php(3): view('sidebar.php')
+12 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\dashbord\\Dashbord_view.php')
+13 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+14 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('dashbord/Dashbord_view', [], true)
+15 APPPATH\Controllers\dashbord\Dashbord.php(31): view('dashbord/Dashbord_view', [...])
+16 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+17 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+18 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 12:37:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 12:37:05 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 403.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(377): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\header.php(24): base_url(null)
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\header.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('header.php', [], true)
+ 7 APPPATH\Views\sidebar.php(35): view('header.php')
+ 8 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\sidebar.php')
+ 9 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('sidebar.php', [], true)
+11 APPPATH\Views\dashbord\Dashbord_view.php(3): view('sidebar.php')
+12 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\dashbord\\Dashbord_view.php')
+13 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+14 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('dashbord/Dashbord_view', [], true)
+15 APPPATH\Controllers\dashbord\Dashbord.php(31): view('dashbord/Dashbord_view', [...])
+16 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+17 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+18 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 12:37:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 12:37:09 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 403.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(377): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\header.php(24): base_url(null)
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\header.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('header.php', [], true)
+ 7 APPPATH\Views\sidebar.php(35): view('header.php')
+ 8 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\sidebar.php')
+ 9 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('sidebar.php', [], true)
+11 APPPATH\Views\dashbord\Dashbord_view.php(3): view('sidebar.php')
+12 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\dashbord\\Dashbord_view.php')
+13 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+14 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('dashbord/Dashbord_view', [], true)
+15 APPPATH\Controllers\dashbord\Dashbord.php(31): view('dashbord/Dashbord_view', [...])
+16 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+17 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+18 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 12:37:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 12:37:14 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+in SYSTEMPATH\HTTP\SiteURI.php on line 403.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(377): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(54): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\header.php(24): base_url(null)
+ 4 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\header.php')
+ 5 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('header.php', [], true)
+ 7 APPPATH\Views\sidebar.php(35): view('header.php')
+ 8 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\sidebar.php')
+ 9 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+10 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('sidebar.php', [], true)
+11 APPPATH\Views\dashbord\Dashbord_view.php(3): view('sidebar.php')
+12 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\dashbord\\Dashbord_view.php')
+13 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+14 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('dashbord/Dashbord_view', [], true)
+15 APPPATH\Controllers\dashbord\Dashbord.php(31): view('dashbord/Dashbord_view', [...])
+16 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+17 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+18 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 12:37:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:37:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:37:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:37:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:38:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:38:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:39:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:40:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:41:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:41:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:41:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:43:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:44:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:45:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:45:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:47:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:49:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:49:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:52:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:54:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 12:55:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:00:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:02:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:08:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:12:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:15:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:17:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:18:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:19:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:23:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 13:23:02 --> ParseError: syntax error, unexpected token ";"
+in APPPATH\Views\dashbord\Dashbord_view.php on line 155.
+ 1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('dashbord/Dashbord_view', [], true)
+ 3 APPPATH\Controllers\dashbord\Dashbord.php(31): view('dashbord/Dashbord_view', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 13:23:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:23:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:24:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 13:24:16 --> TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given
+in APPPATH\Views\dashbord\Dashbord_view.php on line 157.
+ 1 SYSTEMPATH\View\View.php(228): include()
+ 2 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('dashbord/Dashbord_view', [], true)
+ 4 APPPATH\Controllers\dashbord\Dashbord.php(31): view('dashbord/Dashbord_view', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 13:25:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 13:25:48 --> TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given
+in APPPATH\Views\dashbord\Dashbord_view.php on line 157.
+ 1 SYSTEMPATH\View\View.php(228): include()
+ 2 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('dashbord/Dashbord_view', [], true)
+ 4 APPPATH\Controllers\dashbord\Dashbord.php(33): view('dashbord/Dashbord_view', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+CRITICAL - 2026-03-09 13:25:48 --> [Caused by] ErrorException: Undefined variable $total
+in APPPATH\Views\dashbord\Dashbord_view.php on line 157.
+ 1 APPPATH\Views\dashbord\Dashbord_view.php(157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total', 'C:\\xampp\\htdocs\\geco\\app\\Views\\dashbord\\Dashbord_view.php', 157)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\dashbord\\Dashbord_view.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('dashbord/Dashbord_view', [], true)
+ 5 APPPATH\Controllers\dashbord\Dashbord.php(33): view('dashbord/Dashbord_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 13:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 13:26:20 --> ErrorException: Undefined variable $total
+in APPPATH\Views\dashbord\Dashbord_view.php on line 157.
+ 1 APPPATH\Views\dashbord\Dashbord_view.php(157): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total', 'C:\\xampp\\htdocs\\geco\\app\\Views\\dashbord\\Dashbord_view.php', 157)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\dashbord\\Dashbord_view.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('dashbord/Dashbord_view', [], true)
+ 5 APPPATH\Controllers\dashbord\Dashbord.php(33): view('dashbord/Dashbord_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 13:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:27:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:28:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 13:28:05 --> ErrorException: Undefined variable $total
+in APPPATH\Controllers\dashbord\Dashbord.php on line 29.
+ 1 APPPATH\Controllers\dashbord\Dashbord.php(29): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total', 'C:\\xampp\\htdocs\\geco\\app\\Controllers\\dashbord\\Dashbord.php', 29)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\dashbord\Dashbord->index()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\dashbord\Dashbord))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 13:28:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:30:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:31:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:31:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:31:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:31:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:39:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:40:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:41:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:43:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:44:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:46:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:46:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:48:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:48:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:50:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:50:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:50:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:51:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:51:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:52:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:54:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:55:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 13:58:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:01:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:02:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:02:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:03:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:04:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:04:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:04:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:04:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:05:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:05:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:05:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:05:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:06:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:08:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:09:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 14:10:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.

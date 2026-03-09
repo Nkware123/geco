@@ -21,10 +21,13 @@ class Dashbord extends BaseController
     foreach ($data2 as $demande)
     {
       $agences[] = $demande->DESC_AGENCE;
-      $dem[] =$demande->nbr;
+      $dem[] = $demande->nbr;
     }
     $data["data3"]=str_replace('"','',json_encode($dem));
+
     $data["data2"]=json_encode($agences);
+
+    $data["employe"]=$db =\Config\Database::connect()->query("SELECT COUNT(USER_ID) AS NB_EMPLOYE FROM users")->getRow()->NB_EMPLOYE;
 
     // print_r($data["data3"]." ".$data["data2"]);die();
   	return view("dashbord/Dashbord_view",$data);

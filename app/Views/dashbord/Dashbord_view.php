@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php echo view('sidebar.php')?>
+<?php echo view('sidebar.php');
+date_default_timezone_set("africa/Bujumbura");
+?>
 <body>
   <main id="main" class="main">
 
@@ -52,14 +54,14 @@
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card revenue-card">
                 <div class="card-body">
-                  <h5 class="card-title">Revenue <span>| Aujourd'hui</span></h5>
+                  <h5 class="card-title">Employés <span></span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
+                      <i class="bi bi-person"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>$3,264</h6>
+                      <h6><?=$employe?></h6>
                       <!-- <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span> -->
 
                     </div>
@@ -77,32 +79,6 @@
 
                   <!-- Line Chart -->
                   <div id="reportsChart" style="width:100%; height:400px;"></div>
-
-                   <script>
-                    // Configuration de base
-                    Highcharts.chart('reportsChart', {
-                        chart: {
-                            type: 'column'  // Type de graphique
-                        },
-                        title: {
-                            text: ''
-                        },
-                        xAxis: {
-                            categories: <?=$data2?>
-                        },
-                        yAxis: {
-                            title: {
-                                text: 'Demande'
-                            }
-                        },
-                        series: [{
-                            name: 'Agence',
-                            data: <?=$data3?>
-                        },]
-                    });
-                </script>
-                  <!-- End Line Chart -->
-
                 </div>
 
               </div>
@@ -122,10 +98,24 @@
               <div class="activity">
                 <?php 
                 // Prendre seulement les 5 premiers éléments
-                $limitedData = array_slice($data, 0, 5);
-                foreach ($limitedData as $value) {?>
+                $limitedData = array_slice($data, 0, 2);
+                foreach ($limitedData as $value) {
+                  $heureInsertion = date('Y-m-d H:i', strtotime($value->DATE_INSERTION));
+                  $heure_actuelle = date('Y-m-d H:i');
+                  $diff = strtotime($heure_actuelle) - strtotime($heureInsertion);
+                  
+                  if ($diff < 60) {
+                    $temps_relatif = floor($diff) . " sec";
+                  } elseif ($diff < 3600) {
+                    $temps_relatif = floor($diff / 60) . " min";
+                  } elseif ($diff < 86400) {
+                    $temps_relatif = floor($diff / 3600) . " h";
+                  } else {
+                    $temps_relatif = floor($diff / 86400) . " j";
+                  }
+                  ?>
                 <div class="activity-item d-flex">
-                  <div class="activite-label">32 min</div>
+                  <div class="activite-label"><?php echo $temps_relatif; ?></div>
                   <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                   <div class="activity-content">
                     <?=$value->NOM_USER." ".$value->PRENOM_USER?> <a href="#" class="fw-bold text-dark"><?=$value->DESC_TYPE_CONGE?></a>
@@ -136,6 +126,18 @@
 
               </div>
 
+            </div>
+
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Demande par Type de congé</h5>
+
+                  <!-- Line Chart -->
+                  <div id="typeCongeChart" style="width:100%; height:370px;"></div>
+                </div>
+
+              </div>
             </div>
           </div><!-- End Recent Activity -->         
 
@@ -156,18 +158,95 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src=<?=base_url("assets/vendor/highcharts/highcharts.js")?>></script>
+  <script src="<?=base_url() ?>assets/vendor/highcharts/modules/exporting.js"></script>
+  <script src="<?=base_url() ?>assets/vendor/highcharts/modules/export-data.js"></script>
+  <script src="<?=base_url() ?>assets/vendor/highcharts/modules/data.js"></script>
+
+  <script src=<?=base_url("assets/vendor/apexcharts/apexcharts.min.js")?>></script>
+  <script src=<?=base_url("assets/vendor/bootstrap/js/bootstrap.bundle.min.js")?>></script>
+  <script src=<?=base_url("assets/vendor/chart.js/chart.umd.js")?>></script>
+  <script src=<?=base_url("assets/vendor/echarts/echarts.min.js")?>></script>
+  <script src=<?=base_url("assets/vendor/quill/quill.js")?>></script>
+  <script src=<?=base_url("assets/vendor/simple-datatables/simple-datatables.js")?>></script>
+  <script src=<?=base_url("assets/vendor/tinymce/tinymce.min.js")?>></script>
+  <script src=<?=base_url("assets/vendor/php-email-form/validate.js")?>></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src=<?=base_url("assets/js/main.js")?>></script>
 
 </body>
 
 </html>
+
+ <script type="text/javascript">
+                    var agences = <?=$data2?>;
+          var demandes = <?=$data3?>;
+          var total = <?=count($data)?>; 
+
+          // Créer le graphique
+          Highcharts.chart('reportsChart', {
+            chart: {
+              type: 'column'
+            },
+            title: {
+              text: '<b>Demandes par Agence</b>'
+            },
+            subtitle: {
+              text: '<b>Total = ' + total + ' demande(s)</b>'
+            },
+            xAxis: {
+              categories: agences,
+              title: {
+                text: 'Agences'
+              },
+              labels: {
+                style: {
+                  fontSize: '12px',
+                  fontWeight: 'normal'
+                }
+              }
+            },
+            yAxis: {
+              allowDecimals: false,
+              min: 0,
+              title: {
+                text: 'Nombre de demandes'
+              }
+            },
+            tooltip: {
+              headerFormat: '<b>{point.key}</b><br/>',
+              pointFormat: 'Demandes: {point.y}'
+            },
+            plotOptions: {
+              column: {
+                dataLabels: {
+                  enabled: true,
+                  format: '{y}',
+                  style: {
+                    fontSize: '11px',
+                    fontWeight: 'bold',
+                    color: '#333'
+                  }
+                },
+                showInLegend: false,
+                borderRadius: 5,
+                borderWidth: 0
+              }
+            },
+            colors: [
+              '#4154f1', '#2ecc71', '#e74c3c', '#f39c12', '#9b59b6'
+            ],
+            credits: {
+              enabled: true,
+              href: '',
+              text: 'Mutec'
+            },
+            series: [{
+              name: 'Demandes',
+              colorByPoint: true,
+              data: demandes
+            }]
+          });
+                    </script>
+                  <!-- End Line Chart -->

@@ -20,6 +20,8 @@
                     <tr>
                       <th>#</th>
                       <th>Type congé</th>
+                      <th>S'agit-il de jour de base?</th>
+                      <th>Jours de base</th>
                       <th>Status</th>
                       <th>Option</th>
                     </tr>
@@ -41,6 +43,8 @@
                       <tr>
                         <td>'.$u++.'</td>
                         <td>'.$value->DESC_TYPE_CONGE.'</td>
+                        <td>'.($value->HAS_JOURS_BASE==1 ? 'Oui' : 'Non').'</td>
+                        <td>'.($value->HAS_JOURS_BASE==1 ? $value->NOMBRE_JOURS_BASE : '-').'</td>
                         <td>'.$EST_ACTIVE.'</td>
                         <td><a class="btn" title="Modifier" onclick="get_data_update('.$value->ID_TYPE_CONGE.')"><i class="bi bi-pencil-square"><i></a></td>
                       </tr>'; 
@@ -82,6 +86,22 @@
               <font id="error_DESC_TYPE_CONGE" color="red"></font>
               <br>            
             </div>
+            <div class="col-md-12">
+              <label>S'agit-il de jour de base?<font color="red">*</font></label>
+              <select name="HAS_JOURS_BASE" id="HAS_JOURS_BASE" class="form-control" onchange="get_jours_base()">
+                <option value="">Sélectionner</option>
+                <option value="1">Oui</option>
+                <option value="0">Non</option>
+              </select>
+              <font id="error_HAS_JOURS_BASE" color="red"></font>
+              <br>
+            </div>
+            <div class="col-md-12" id="div_jours_base" style="display: none;">
+              <label>Jours de base<font color="red">*</font></label>
+              <input type="number" name="NOMBRE_JOURS_BASE" id="NOMBRE_JOURS_BASE" class="form-control">
+              <font id="error_NOMBRE_JOURS_BASE" color="red"></font>
+              <br>
+            </div>
           </div>
         </form>        
       </div>
@@ -122,12 +142,45 @@
 </div>
 
 <script type="text/javascript">
+  function get_jours_base()
+  {
+    if($('#HAS_JOURS_BASE').val()==1)
+    {
+      $('#div_jours_base').show();
+    }
+    else
+    {
+      $('#div_jours_base').hide();
+    }
+  }
+
   function save()
   {
     var DESC_TYPE_CONGE=$('#DESC_TYPE_CONGE').val()
+    var HAS_JOURS_BASE=$('#HAS_JOURS_BASE').val()
+    var NOMBRE_JOURS_BASE=$('#NOMBRE_JOURS_BASE').val()
 
     var statut=1
     $('#error_DESC_TYPE_CONGE').html('')
+
+    if(HAS_JOURS_BASE=='')
+    {
+      $('#error_HAS_JOURS_BASE').html('Ce champ est obligatoire');
+      statut=2      
+    }
+    else
+    {
+      $('#error_HAS_JOURS_BASE').html('');
+      if(HAS_JOURS_BASE==1 && NOMBRE_JOURS_BASE=='')
+      {
+        $('#error_NOMBRE_JOURS_BASE').html('Ce champ est obligatoire');
+        statut=2 
+      }
+      else
+      {
+        $('#error_NOMBRE_JOURS_BASE').html('');
+      }
+    }
 
     if(DESC_TYPE_CONGE=='')
     {
@@ -153,6 +206,17 @@
           $('#error_DESC_TYPE_CONGE').html('')
           $('#ID_TYPE_CONGE').val(data.ID_TYPE_CONGE)
           $('#DESC_TYPE_CONGE').val(data.DESC_TYPE_CONGE)
+          $('#HAS_JOURS_BASE').val(data.HAS_JOURS_BASE)
+          if(data.HAS_JOURS_BASE==1)
+          {
+            $('#div_jours_base').show();
+            $('#NOMBRE_JOURS_BASE').val(data.NOMBRE_JOURS_BASE)
+          }
+          else
+          {
+            $('#div_jours_base').hide();
+            $('#NOMBRE_JOURS_BASE').val('')
+          }
           $('#basicModal').modal("show");
           $('#MyForm').attr("action",'<?=base_url('type_conge/update_type_conge')?>');
           $('#button2').attr("hidden",false);

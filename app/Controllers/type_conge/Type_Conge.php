@@ -23,7 +23,15 @@ class Type_Conge extends BaseController
   {
     $DESC_TYPE_CONGE=$this->request->getPost('DESC_TYPE_CONGE');
     $ID_TYPE_CONGE=$this->request->getPost('ID_TYPE_CONGE');
+    $HAS_JOURS_BASE=$this->request->getPost('HAS_JOURS_BASE');
+    $NOMBRE_JOURS_BASE=$this->request->getPost('NOMBRE_JOURS_BASE');
+    if($HAS_JOURS_BASE==0)
+    {
+      $NOMBRE_JOURS_BASE=0;
+    }
+      
     $table='type_conge';
+     $datacolumsinsert = array('DESC_TYPE_CONGE' => $DESC_TYPE_CONGE,'HAS_JOURS_BASE' => $HAS_JOURS_BASE,'NOMBRE_JOURS_BASE' => $NOMBRE_JOURS_BASE);
     $datacolumsinsert = array('DESC_TYPE_CONGE' => $DESC_TYPE_CONGE);
     if (!empty($ID_TYPE_CONGE)) {
       $where="ID_TYPE_CONGE=".$ID_TYPE_CONGE;
