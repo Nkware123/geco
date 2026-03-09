@@ -6,19 +6,13 @@ date_default_timezone_set("africa/Bujumbura");
 <body>
   <main id="main" class="main">
 
-    <div class="pagetitle">
+    <div class="pagetitle row">
       <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
-      <div class="col-md-6">
-        <select name="filtre" class="form-control" id="filtre">
-          <option value="1">Aujourd'hui</option>
-          <option value="2">Ce mois</option>
-          <option value="3">Cette année</option>
+      <div class="col-md-2">
+        <select name="filtre" class="form-control" id="filtre" onchange="filtrer()">
+          <option value="1" <?= (isset($filtre) && $filtre == 1) ? 'selected' : '' ?>>Aujourd'hui</option>
+          <option value="2" <?= (isset($filtre) && $filtre == 2) ? 'selected' : '' ?>>Ce mois</option>
+          <option value="3" <?= (isset($filtre) && $filtre == 3) ? 'selected' : '' ?>>Cette année</option>
         </select>
       </div>
     </div><!-- End Page Title -->
@@ -153,7 +147,9 @@ date_default_timezone_set("africa/Bujumbura");
     <div class="copyright">
       &copy; Copyright <strong><span>Mutec</span></strong>. All Rights Reserved
     </div>
-  </footer><!-- End Footer -->
+  </footer><!-- End Footer --> 
+   <!-- Template Main JS File -->
+  <script src=<?=base_url("assets/js/main.js")?>></script>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -163,90 +159,151 @@ date_default_timezone_set("africa/Bujumbura");
   <script src="<?=base_url() ?>assets/vendor/highcharts/modules/export-data.js"></script>
   <script src="<?=base_url() ?>assets/vendor/highcharts/modules/data.js"></script>
 
-  <script src=<?=base_url("assets/vendor/apexcharts/apexcharts.min.js")?>></script>
+  <!-- <script src=<?=base_url("assets/vendor/apexcharts/apexcharts.min.js")?>></script>
   <script src=<?=base_url("assets/vendor/bootstrap/js/bootstrap.bundle.min.js")?>></script>
   <script src=<?=base_url("assets/vendor/chart.js/chart.umd.js")?>></script>
   <script src=<?=base_url("assets/vendor/echarts/echarts.min.js")?>></script>
   <script src=<?=base_url("assets/vendor/quill/quill.js")?>></script>
   <script src=<?=base_url("assets/vendor/simple-datatables/simple-datatables.js")?>></script>
   <script src=<?=base_url("assets/vendor/tinymce/tinymce.min.js")?>></script>
-  <script src=<?=base_url("assets/vendor/php-email-form/validate.js")?>></script>
+  <script src=<?=base_url("assets/vendor/php-email-form/validate.js")?>></script> -->
 
-  <!-- Template Main JS File -->
-  <script src=<?=base_url("assets/js/main.js")?>></script>
+
 
 </body>
 
 </html>
 
  <script type="text/javascript">
-                    var agences = <?=$data2?>;
-          var demandes = <?=$data3?>;
-          var total = <?=count($data)?>; 
+  function filtrer() {
+    var filtre = document.getElementById("filtre").value;
+    var url = "";
+    if (filtre == "1") {
+      url = "<?=base_url('dashbord/dashbord?filtre=1')?>";
+    } else if (filtre == "2") {
+      url = "<?=base_url('dashbord/dashbord?filtre=2')?>";
+    } else if (filtre == "3") {
+      url = "<?=base_url('dashbord/dashbord?filtre=3')?>";
+    }
+    window.location.href = url;
+  }
+  var agences = <?=$data2?>;
+  var demandes = <?=$data3?>;
+  var total = <?=count($data)?>; 
 
-          // Créer le graphique
-          Highcharts.chart('reportsChart', {
-            chart: {
-              type: 'column'
-            },
-            title: {
-              text: '<b>Demandes par Agence</b>'
-            },
-            subtitle: {
-              text: '<b>Total = ' + total + ' demande(s)</b>'
-            },
-            xAxis: {
-              categories: agences,
-              title: {
-                text: 'Agences'
-              },
-              labels: {
-                style: {
-                  fontSize: '12px',
-                  fontWeight: 'normal'
-                }
-              }
-            },
-            yAxis: {
-              allowDecimals: false,
-              min: 0,
-              title: {
-                text: 'Nombre de demandes'
-              }
-            },
-            tooltip: {
-              headerFormat: '<b>{point.key}</b><br/>',
-              pointFormat: 'Demandes: {point.y}'
-            },
-            plotOptions: {
-              column: {
-                dataLabels: {
-                  enabled: true,
-                  format: '{y}',
-                  style: {
-                    fontSize: '11px',
-                    fontWeight: 'bold',
-                    color: '#333'
-                  }
-                },
-                showInLegend: false,
-                borderRadius: 5,
-                borderWidth: 0
-              }
-            },
-            colors: [
-              '#4154f1', '#2ecc71', '#e74c3c', '#f39c12', '#9b59b6'
-            ],
-            credits: {
-              enabled: true,
-              href: '',
-              text: 'Mutec'
-            },
-            series: [{
-              name: 'Demandes',
-              colorByPoint: true,
-              data: demandes
-            }]
-          });
-                    </script>
+  // Créer le graphique
+  Highcharts.chart('reportsChart', {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: '<b></b>'
+    },
+    subtitle: {
+      text: '<b>Total = ' + total + ' demande(s)</b>'
+    },
+    xAxis: {
+      categories: agences,
+      title: {
+        text: 'Agences'
+      },
+      labels: {
+        style: {
+          fontSize: '12px',
+          fontWeight: 'normal'
+        }
+      }
+    },
+    yAxis: {
+      allowDecimals: false,
+      min: 0,
+      title: {
+        text: 'Nombre de demandes'
+      }
+    },
+    tooltip: {
+      headerFormat: '<b>{point.key}</b><br/>',
+      pointFormat: 'Demandes: {point.y}'
+    },
+    plotOptions: {
+      column: {
+        dataLabels: {
+          enabled: true,
+          format: '{y}',
+          style: {
+            fontSize: '11px',
+            fontWeight: 'bold',
+            color: '#333'
+          }
+        },
+        showInLegend: false,
+        borderRadius: 5,
+        borderWidth: 0
+      }
+    },
+    colors: [
+      '#4154f1', '#2ecc71', '#e74c3c', '#f39c12', '#9b59b6'
+    ],
+    credits: {
+      enabled: true,
+      href: '',
+      text: 'Mutec'
+    },
+    series: [{
+      name: 'Demandes',
+      colorByPoint: true,
+      data: demandes
+    }]
+  });
+
+  // Créer le graphique par type de congé
+  var colors = ['#ea7a6e', '#e3ae58', '#d4a9e5','#4c99e2', '#77bb2f'];
+  
+  var type_conge = <?=$data5?>;
+  var nbr_demande = <?=$data4?>;
+  Highcharts.chart('typeCongeChart', {
+    chart: {
+      type: 'pie'
+    },
+    title: {
+      text: '<b></b>'
+    },
+    subtitle: {
+      text: '<b>Total = ' + total + ' demande(s)</b>'
+    },
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.y}</b> ({point.percentage:.1f}%)'
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '<b>{point.name}</b>: {point.y} ({point.percentage:.1f}%)',
+          style: {
+            fontSize: '11px',
+            fontWeight: 'bold',
+            color: '#333'
+          }
+        },
+        showInLegend: true,
+        borderWidth: 0
+      }
+    },
+    colors: colors,
+    credits: {
+      enabled: true,
+      href: '',
+      text: 'Mutec'
+    },
+    series: [{
+      name: 'Demandes',
+      colorByPoint: true,
+      data: type_conge.map(function(type, index) {
+        return { name: type, y: nbr_demande[index] };
+      })
+    }]
+  });
+</script>
                   <!-- End Line Chart -->

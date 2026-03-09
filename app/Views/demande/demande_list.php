@@ -26,6 +26,7 @@
                       <th>Nom</th>
                       <th>Prenom</th>
                       <th>Type de congé</th>
+                      <th>Etape</th>
                       <th>Date debut</th>
                       <th>date fin</th>
                       <th>Date demande</th>
@@ -43,6 +44,7 @@
                         <td>'.$value->NOM_USER.'</td>
                         <td>'.$value->PRENOM_USER.'</td>
                         <td>'.$value->DESC_TYPE_CONGE.'</td>
+                        <td>'.$value->DESC_ETAPE.'</td>
                         <td>'.date('d/m/Y',strtotime($value->DATE_DEBUT)).'</td>
                         <td>'.date('d/m/Y',strtotime($value->DATE_FIN)).'</td>
                         <td>'.date('d/m/Y',strtotime($value->DATE_INSERTION)).'</td>';
@@ -54,24 +56,28 @@
                           </a>
 
                           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center" title="Modifier" href="<?=base_url('demande/view_update').'/'.$value->ID_DEMANDE?>">
-                                <i class="bi bi-pencil-square"></i>
-                                <span>Modifier</span>
-                              </a>
-                            </li>
-                            <li>
-                              <hr class="dropdown-divider">
-                            </li>
                             <?php
+                            if(in_array($value->ID_ETAPE_VALIDATION, [2,3]) && session()->get('user_id')==$value->USER_ID)
+                            {?>
+                              <li>
+                                <a class="dropdown-item d-flex align-items-center" title="Modifier" href="<?=base_url('demande/view_update').'/'.$value->ID_DEMANDE?>">
+                                  <i class="bi bi-pencil-square"></i>
+                                  <span>Modifier</span>
+                                </a>
+                              </li>
+                              <li>
+                                <hr class="dropdown-divider">
+                              </li>
+                            <?php
+                            }
                             if($value->ID_ETAPE_VALIDATION==2 && session()->get('user_id')==$value->USER_ID_HIERARCHI)
                             {?>
-                            <li>
-                              <a class="dropdown-item d-flex align-items-center" href="#" onclick="decision(<?=$value->ID_DEMANDE?>,<?=$value->ID_ETAPE_VALIDATION?>)">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Décision</span>
-                              </a>
-                            </li>
+                              <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" onclick="decision(<?=$value->ID_DEMANDE?>,<?=$value->ID_ETAPE_VALIDATION?>)">
+                                  <i class="bi bi-box-arrow-right"></i>
+                                  <span>Décision</span>
+                                </a>
+                              </li>
                             <?php
                             }
                             ?>

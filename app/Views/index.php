@@ -48,10 +48,10 @@
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-              <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">MUTEC s.a</span>
+              <div class="navbar-logo"class="row" style="height: 100px">
+                <a href="" class="bg-white rounded">
+                   <img src="assets/img/logo.png" alt="logo" style="height: 100%;width: 100%; object-fit: contain;">
+                  <!-- <center><h2><font color="red">H.P.N.B</font></h2></center> -->
                 </a>
               </div><!-- End Logo -->
 
