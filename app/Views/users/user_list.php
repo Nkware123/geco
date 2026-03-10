@@ -15,23 +15,24 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Liste des utilisateurs</h5>
-              <button style="float: left;" type="button" class="btn btn-primary" onclick="showmodal()"><i class="bi bi-person-plus-fill"></i> Nouvel utilisateur</button><br><br>
+              <div class="row mb-2 mt-2 bg-light rounded border">
+                <h5 class="card-title text-center">Liste des utilisateurs</h5>
+              </div>              
               <!-- Table with stripped rows -->
-              <div class="table-responsive container ">
+              <div class="row table-responsive container rounded border mb-1 mt-1 w-auto">
+                <button style="float: left;" type="button" class="btn btn-primary col-md-2 mt-2" onclick="showmodal()"><i class="bi bi-person-plus-fill"></i> Nouvel utilisateur</button><br>
                 <table id="myTable" class="table table-striped">
-                  <thead>
+                  <thead class="table-light">
                     <tr>
                       <th>#</th>
-                      <th>Nom</th>
-                      <th>Prenom</th>
-                      <th>Nom&nbsp;d&nbsp;'&nbsp;utilisateur</th>
-                      <th>Téléphone</th>
-                      <th>Fonction</th>
-                      <th>Agence</th>
-                      <th>Supérieur Hiérarchique</th>
-                      <th>Status</th>
-                      <th>Option</th>
+                      <th class="text-uppercase">Nom</th>
+                      <th class="text-uppercase">Nom&nbsp;d&nbsp;'&nbsp;utilisateur</th>
+                      <th class="text-uppercase">Téléphone</th>
+                      <th class="text-uppercase">Fonction</th>
+                      <th class="text-uppercase">Agence</th>
+                      <th class="text-uppercase">Supérieur&nbsp;Hiérarchique</th>
+                      <th class="text-uppercase">Status</th>
+                      <th class="text-uppercase">Option</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -50,8 +51,7 @@
                       echo'
                       <tr>
                         <td>'.$u++.'</td>
-                        <td>'.$value->NOM_USER.'</td>
-                        <td>'.$value->PRENOM_USER.'</td>
+                        <td>'.$value->NOM_USER.' '.$value->PRENOM_USER.'</td>
                         <td>'.$value->USERNAME.'</td>
                         <td>'.$value->TELEPHONE.'</td>
                         <td>'.$value->DESC_FONCTION.'</td>

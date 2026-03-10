@@ -15,17 +15,19 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Liste des agences</h5>
-              <button style="float: left;" type="button" class="btn btn-primary" onclick="showmodal()"><i class="bi bi-person-plus-fill"></i> Nouvelle Agence</button><br><br>
+              <div class="row mb-2 mt-2 bg-light rounded border">
+                <h5 class="card-title text-center">Liste des agences</h5>
+              </div>              
               <!-- Table with stripped rows -->
-              <div class="table-responsive container ">
+              <div class="row table-responsive container rounded border mb-1 mt-1 w-auto">
+                <button style="float: left;" type="button" class="btn btn-primary col-md-2 mt-2" onclick="showmodal()"><i class="bi bi-person-plus-fill"></i> Nouvelle agence</button><br>
                 <table id="myTable" class="table table-striped">
-                  <thead>
+                  <thead class="table-light">
                     <tr>
                       <th>#</th>
-                      <th>Agence</th>
-                      <th>Status</th>
-                      <th>Option</th>
+                      <th class="text-uppercase">Agence</th>
+                      <th class="text-uppercase">Status</th>
+                      <th class="text-uppercase">Option</th>
                     </tr>
                   </thead>
                   <tbody>

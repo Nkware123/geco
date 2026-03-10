@@ -69,7 +69,7 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Lieu d'affectation</div>
-                    <div class="col-lg-9 col-md-8"><?=$donnees->DESC_LIEU_AFFECTATION?></div>
+                    <div class="col-lg-9 col-md-8"><?=$donnees->DESC_AGENCE?></div>
                   </div>
 
                   <div class="row">

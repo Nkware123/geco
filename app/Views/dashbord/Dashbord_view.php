@@ -25,10 +25,10 @@ date_default_timezone_set("africa/Bujumbura");
           <div class="row">
 
             <!-- Sales Card -->
-            <div class="col-xxl-4 col-md-6">
+            <div class="col-md-6">
               <div class="card info-card sales-card">
                 <div class="card-body">
-                  <h5 class="card-title">Demandes <span></span></h5>
+                  <h5 class="card-title">Demandes <a title="Voir plus" style="float: right;" href="<?=base_url()?>demande/liste">...</a></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -45,10 +45,10 @@ date_default_timezone_set("africa/Bujumbura");
             </div><!-- End Sales Card -->
 
             <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
+            <div class="col-md-6">
               <div class="card info-card revenue-card">
                 <div class="card-body">
-                  <h5 class="card-title">Employés <span></span></h5>
+                  <h5 class="card-title">Utilisateurs <a style="float: right;" title="Voir plus" href="<?=base_url()?>user_liste">...</a></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -175,6 +175,69 @@ date_default_timezone_set("africa/Bujumbura");
 </html>
 
  <script type="text/javascript">
+  $(document).ready(function() {
+    $('#myTable').DataTable({
+        // columnDefs: [
+        //     { targets: [3], orderable: false } // Désactiver la possibilité de trier la colonne d'action
+        //   ],
+      
+      dom: 'Bfrtlip',
+        language: {
+        "sProcessing":     "Traitement en cours...",
+        "sSearch":         "Rechercher&nbsp;:",
+        "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
+        "sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+        "sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+        "sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+        "sInfoPostFix":    "",
+        "sLoadingRecords": "Chargement en cours...",
+        "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+        "sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
+        "oPaginate": {
+          "sFirst":      "Premier",
+          "sPrevious":   "Pr&eacute;c&eacute;dent",
+          "sNext":       "Suivant",
+          "sLast":       "Dernier"
+        },
+        "oAria": {
+          "sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+          "sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
+        }
+      }
+    });
+  });
+  function get_liste(value)
+  {
+    $.ajax({
+      url:"<?=base_url()?>/dashbord/get_liste",
+      type:"POST",
+      dataType:"JSON",
+      data:{value},
+      success: function(data)
+      {
+        $("#my_modal").modal("show");
+        $("#liste").html(data.html);
+        $("#modal-title").text(data.agence);
+      }
+    });
+  }
+
+  function get_liste_by_type(value)
+  {
+    $.ajax({
+      url:"<?=base_url()?>/dashbord/get_liste_by_type",
+      type:"POST",
+      dataType:"JSON",
+      data:{value},
+      success: function(data)
+      {
+        $("#my_modal").modal("show");
+        $("#liste").html(data.html);
+        $("#modal-title").text(data.type);
+      }
+    });
+  }
+
   function filtrer() {
     var filtre = document.getElementById("filtre").value;
     var url = "";
@@ -238,7 +301,14 @@ date_default_timezone_set("africa/Bujumbura");
         },
         showInLegend: false,
         borderRadius: 5,
-        borderWidth: 0
+        borderWidth: 0,
+        point: {
+          events: {
+            click: function() {
+              get_liste(this.category)
+            }
+          }
+        }
       }
     },
     colors: [
@@ -289,6 +359,15 @@ date_default_timezone_set("africa/Bujumbura");
         },
         showInLegend: true,
         borderWidth: 0
+      },
+      series: {
+        point: {
+          events: {
+            click: function() {
+              get_liste_by_type(this.name);
+            }
+          }
+        }
       }
     },
     colors: colors,
@@ -306,4 +385,36 @@ date_default_timezone_set("africa/Bujumbura");
     }]
   });
 </script>
-                  <!-- End Line Chart -->
+<!-- End Line Chart -->
+
+<div class="modal fade" id="my_modal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Demades : <span id="modal-title" class="fw-bold"></span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" name="USER_ID_DEL" id="USER_ID_DEL">
+        <div class="table-responsive container">
+          <table id="myTable" class="table table-striped">
+            <thead class="table-light">
+              <tr>
+                <th>#</th>
+                <th class="text-uppercase">Nom</th>
+                <th class="text-uppercase">Type&nbsp;de&nbsp;congé</th>
+                <th class="text-uppercase">Date&nbsp;debut</th>
+                <th class="text-uppercase">Nombre&nbsp;de&nbsp;jours</th>
+              </tr>
+            </thead>
+            <tbody id="liste">
+            </tbody>
+          </table>          
+        </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,22 +15,23 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Liste des demandes</h5>
-              <a style="float: left;" href="<?=base_url('demande/formulaire')?>" class="btn btn-primary" ><i class="bi bi-person-plus-fill"></i>Nouvelle demande</a><br><br>
+              <div class="row mb-2 mt-2 bg-light rounded border">
+                <h5 class="card-title text-center">Liste des demandes</h5>
+              </div>              
               <!-- Table with stripped rows -->
-              <div class="table-responsive container ">
+              <div class="row table-responsive rounded border mb-1 mt-1 w-auto">
+                <button style="float: left;" type="button" class="btn btn-primary col-md-2 mt-2" onclick="checkDemandeCours()"><i class="bi bi-person-plus-fill"></i> Nouvelle demande</button><br>
                 <table id="myTable" class="table table-striped">
-                  <thead>
+                  <thead class="table-light">
                     <tr>
                       <th>#</th>
-                      <th>Nom</th>
-                      <th>Prenom</th>
-                      <th>Type de congé</th>
-                      <th>Etape</th>
-                      <th>Date debut</th>
-                      <th>date fin</th>
-                      <th>Date demande</th>
-                      <th>Option</th>
+                      <th class="text-uppercase">Nom</th>
+                      <th class="text-uppercase">Type&nbsp;de&nbsp;congé</th>
+                      <th class="text-uppercase">Etape</th>
+                      <th class="text-uppercase">Date&nbsp;debut</th>
+                      <th class="text-uppercase">date&nbsp;fin</th>
+                      <th class="text-uppercase">Date&nbsp;demande</th>
+                      <th class="text-uppercase">Option</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -41,8 +42,7 @@
                       echo'
                       <tr>
                         <td>'.$u++.'</td>
-                        <td>'.$value->NOM_USER.'</td>
-                        <td>'.$value->PRENOM_USER.'</td>
+                        <td>'.$value->NOM_USER.' '.$value->PRENOM_USER.'</td>
                         <td>'.$value->DESC_TYPE_CONGE.'</td>
                         <td>'.$value->DESC_ETAPE.'</td>
                         <td>'.date('d/m/Y',strtotime($value->DATE_DEBUT)).'</td>
@@ -147,8 +147,45 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="dem_en_cour" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-light borderered rounded">
+        <center><h4 id="message" class="text-danger"></h4></center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
-   $(document).ready(function() {
+  function checkDemandeCours()
+  {
+    $.ajax({
+      url:"<?=base_url()?>/demande/checkDemandeCours",
+      type:"POST",
+      dataType:"JSON",
+      success:function(data)
+      {
+        if(data.status)
+        {
+          $("#message").html("Une autre demande est en cours!!!")
+          $("#dem_en_cour").modal("show")
+        }
+        else
+        {
+          window.location.href="<?=base_url()?>/demande/formulaire"
+        }
+      }
+    })
+  }
+  $(document).ready(function() {
     $('#myTable').DataTable({
       // columnDefs: [
       //     { targets: [3], orderable: false } // Désactiver la possibilité de trier la colonne d'action

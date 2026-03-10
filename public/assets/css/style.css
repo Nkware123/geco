@@ -19,6 +19,10 @@ body {
   color: #444444;
 }
 
+thead {
+  color: #88aef1;
+}
+
 a {
   color: #4154f1;
   text-decoration: none;

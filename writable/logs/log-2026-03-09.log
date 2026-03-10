@@ -2208,3 +2208,25 @@ INFO - 2026-03-09 18:08:00 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2026-03-09 18:08:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
 INFO - 2026-03-09 18:10:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
 INFO - 2026-03-09 18:10:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 18:11:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 18:12:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+CRITICAL - 2026-03-09 18:12:16 --> ErrorException: Undefined property: stdClass::$DESC_LIEU_AFFECTATION
+in APPPATH\Views\users\users-profile.php on line 72.
+ 1 APPPATH\Views\users\users-profile.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$DESC_LIEU_AFFECTATION', 'C:\\xampp\\htdocs\\geco\\app\\Views\\users\\users-profile.php', 72)
+ 2 SYSTEMPATH\View\View.php(228): include('C:\\xampp\\htdocs\\geco\\app\\Views\\users\\users-profile.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('users\\users-profile', [], true)
+ 5 APPPATH\Controllers\users\users.php(123): view('users\\users-profile', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\users\users->user_profile()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\users\users))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\xampp\\htdocs\\geco\\public\\index.php')
+INFO - 2026-03-09 18:13:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 18:13:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 18:14:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 18:14:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 18:14:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 18:15:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 18:18:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.
+INFO - 2026-03-09 18:18:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\DatabaseHandler' driver.

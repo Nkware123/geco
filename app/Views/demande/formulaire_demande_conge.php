@@ -20,9 +20,11 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Formulaire de demande de congé</h5>
-              <form id="MyForm" action="<?=base_url('demande/save_demande')?>" enctype='multipart/form-data' method='POST'>
-                <div class="row">
+              <div class="row mb-2 mt-2 bg-light rounded border">
+                <h5 class="card-title text-center">Formulaire de demande de congé</h5>
+              </div>
+              <form id="MyForm" action="<?=base_url('demande/save_demande')?>" class="form-horizontal mt-3 border rounded mb-3 row" enctype='multipart/form-data' method='POST'>
+                <div class="row mt-3">
                   <div class="col-md-6">
                     <label>Type de congé</label><font color="red">*</font>
                     <select name="ID_TYPE_CONGE" id="ID_TYPE_CONGE" class="form-control" onchange="get_jours_restants()">

@@ -120,6 +120,21 @@ class demande extends BaseController
         return redirect('demande/liste');
     }
 
+    function checkDemandeCours()
+    {
+        $db=\Config\Database::connect();
+        $nbr_rest=$db->query("SELECT * FROM demande_conge d where ID_ETAPE_VALIDATION in (2,3) AND ID_USER=".session()->get('user_id'))->getRow();
+        if(empty($nbr_rest))
+        {
+           $status=false; 
+        }
+        else
+        {
+            $status=true;
+        }
+        echo json_encode(array("status"=>$status));
+    }
+
     public function decision()
     {
         $db =\Config\Database::connect();
@@ -131,7 +146,7 @@ class demande extends BaseController
 
         $nbr_rest=$db->query("SELECT NOMBRE_JOURS_DEMANDE, t.NOMBRE_JOURS_BASE FROM demande_conge d join type_conge t on d.ID_TYPE_CONGE=t.ID_TYPE_CONGE where ID_DEMANDE=".$ID_DEMANDE)->getRow();
 
-        if($ID_TYPE_DECISION==2)
+        if($ID_TYPE_DECISION==1 && !empty($nbr_rest->NOMBRE_JOURS_BASE))
         {
             $NOMBRE_JOURS_RESTANT=$nbr_rest->NOMBRE_JOURS_BASE - $nbr_rest->NOMBRE_JOURS_DEMANDE;
         }

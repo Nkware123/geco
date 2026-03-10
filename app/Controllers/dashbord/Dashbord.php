@@ -76,6 +76,44 @@ class Dashbord extends BaseController
     $query_demande_type_conge = $query_demande_type_conge->getResult();
     return [$query_demande,$query_demande_group,$query_demande_type_conge];
   }
+
+  function get_liste()
+  {
+    $value = $this->request->getPost("value");
+    $data = $db =\Config\Database::connect()->query("SELECT * FROM demande_conge JOIN type_conge ON type_conge.ID_TYPE_CONGE =demande_conge.ID_TYPE_CONGE JOIN users ON users.USER_ID=demande_conge.ID_USER JOIN agence a ON a.ID_AGENCE=users.ID_AGENCE WHERE a.DESC_AGENCE ='".$value."' ORDER BY ID_DEMANDE DESC")->getResult();
+    $html="";
+    $u=0;
+    foreach ($data as $demande) {
+      $u=$u+1;
+      $html.="<tr>
+                <td>".$u."</td>
+                <td>".$demande->NOM_USER." ".$demande->PRENOM_USER."</td>
+                <td>".$demande->DESC_TYPE_CONGE."</td>
+                <td>".$demande->DATE_DEBUT."</td>
+                <td>".$demande->NOMBRE_JOURS_DEMANDE."</td>
+              </tr>";
+    }
+    echo json_encode(array("html" => $html,"agence" => $value));
+  }
+
+  function get_liste_by_type()
+  {
+    $value = $this->request->getPost("value");
+    $data = $db =\Config\Database::connect()->query("SELECT * FROM demande_conge JOIN type_conge ON type_conge.ID_TYPE_CONGE =demande_conge.ID_TYPE_CONGE JOIN users ON users.USER_ID=demande_conge.ID_USER JOIN agence a ON a.ID_AGENCE=users.ID_AGENCE WHERE DESC_TYPE_CONGE ='".$value."' ORDER BY ID_DEMANDE DESC")->getResult();
+    $html="";
+    $u=0;
+    foreach ($data as $demande) {
+      $u=$u+1;
+      $html.="<tr>
+                <td>".$u."</td>
+                <td>".$demande->NOM_USER." ".$demande->PRENOM_USER."</td>
+                <td>".$demande->DESC_TYPE_CONGE."</td>
+                <td>".$demande->DATE_DEBUT."</td>
+                <td>".$demande->NOMBRE_JOURS_DEMANDE."</td>
+              </tr>";
+    }
+    echo json_encode(array("html" => $html,"type" => $value));
+  }
 }
 
 ?>

@@ -11,19 +11,21 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Liste des types de congés</h5>
-              <button style="float: left;" type="button" class="btn btn-primary" onclick="showmodal()"><i class="bi bi-person-plus-fill"></i> Nouvel type de congé</button><br><br>
+              <div class="row mb-2 mt-2 bg-light rounded border">
+                <h5 class="card-title text-center">Liste des types de congés</h5>
+              </div>              
               <!-- Table with stripped rows -->
-              <div class="table-responsive container ">
+              <div class="row table-responsive container rounded border mb-1 mt-1 w-auto">
+                <button style="float: left;" type="button" class="btn btn-primary col-md-2 mt-2" onclick="showmodal()"><i class="bi bi-person-plus-fill"></i> Nouveau</button><br>
                 <table id="myTable" class="table table-striped">
-                  <thead>
+                  <thead class="table-light">
                     <tr>
                       <th>#</th>
-                      <th>Type congé</th>
-                      <th>S'agit-il de jour de base?</th>
-                      <th>Jours de base</th>
-                      <th>Status</th>
-                      <th>Option</th>
+                      <th class="text-uppercase">Type&nbsp;congé</th>
+                      <th class="text-uppercase">S'agit-il&nbsp;de&nbsp;jour&nbsp;de&nbsp;base?</th>
+                      <th class="text-uppercase">Jours&nbsp;de&nbsp;base</th>
+                      <th class="text-uppercase">Status</th>
+                      <th class="text-uppercase">Option</th>
                     </tr>
                   </thead>
                   <tbody>
