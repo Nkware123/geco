@@ -42,11 +42,11 @@
                     {
                       if($value->EST_ACTIVE==1)
                       {
-                        $EST_ACTIVE='<a title="désactiver" onclick="active_desactive('.$value->USER_ID.','.$value->EST_ACTIVE.')"><center><i style="color:green;" class="bi bi-check-circle-fill"><i></center></a>';
+                        $EST_ACTIVE='<a title="désactiver" onclick="active_desactive('.$value->USER_ID.','.$value->EST_ACTIVE.')"><center><i style="color:green;" class="bi bi-check-circle-fill"></i></center></a>';
                       }
                       else
                       {
-                        $EST_ACTIVE='<a title="activer" onclick="active_desactive('.$value->USER_ID.','.$value->EST_ACTIVE.')"><center><i style="color:red;" class="bi bi-x-circle-fill"><i></center></a>';
+                        $EST_ACTIVE='<a title="activer" onclick="active_desactive('.$value->USER_ID.','.$value->EST_ACTIVE.')"><center><i style="color:red;" class="bi bi-x-circle-fill"></i></center></a>';
                       }
                       echo'
                       <tr>
@@ -58,11 +58,8 @@
                         <td>'.$value->DESC_AGENCE.'</td>
                         <td>'.$value->NOM_USER_HIERARCHI.' '.$value->PRENOM_USER_HIERARCHI.'</td>
                         <td>'.$EST_ACTIVE.'</td>
-                        <td><a class="btn" title="Modifier" onclick="get_data_update('.$value->USER_ID.')"><i class="bi bi-pencil-square"><i></a></td>
-                      </tr>';
-
-            //           <td><a href='javascript:void(0)' onclick=\"show_doc('".$items['PATH_DOCUMENT_ANNEXE']."')\" class='' title='afficher'><span class='fa fa-file-pdf'></span></a></td>
-            // <td><a href='javascript:void(0)' onclick='show_modal(".$j.")' class='btn btn-danger btn-sm' title='".lang('messages_lang.supprimer_action')."' ><span class='fa fa-trash'></span></a></td>  
+                        <td><a class="btn" title="Modifier" onclick="get_data_update('.$value->USER_ID.')"><i class="bi bi-pencil-square"></i></a></td>
+                      </tr>'; 
                     }
                     ?>
                   </tbody>
@@ -79,7 +76,7 @@
   </main>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script> -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 

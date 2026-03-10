@@ -35,11 +35,11 @@
                     {
                       if($value->EST_ACTIVE==1)
                       {
-                        $EST_ACTIVE='<a title="désactiver" onclick="active_desactive('.$value->ID_TYPE_CONGE.','.$value->EST_ACTIVE.')"><center><i style="color:green;" class="bi bi-check-circle-fill"><i></center></a>';
+                        $EST_ACTIVE='<a title="désactiver" onclick="active_desactive('.$value->ID_TYPE_CONGE.','.$value->EST_ACTIVE.')"><center><i style="color:green;" class="bi bi-check-circle-fill"></i></center></a>';
                       }
                       else
                       {
-                        $EST_ACTIVE='<a title="activer" onclick="active_desactive('.$value->ID_TYPE_CONGE.','.$value->EST_ACTIVE.')"><center><i style="color:red;" class="bi bi-x-circle-fill"><i></center></a>';
+                        $EST_ACTIVE='<a title="activer" onclick="active_desactive('.$value->ID_TYPE_CONGE.','.$value->EST_ACTIVE.')"><center><i style="color:red;" class="bi bi-x-circle-fill"></i></center></a>';
                       }
                       echo'
                       <tr>
@@ -66,7 +66,7 @@
   </main>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script> -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 

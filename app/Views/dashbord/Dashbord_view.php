@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php echo view('sidebar.php');
-date_default_timezone_set("africa/Bujumbura");
-?>
-<body>
+  <body>
+  <?php echo view('sidebar.php');
+  date_default_timezone_set("africa/Bujumbura");
+  ?>
   <main id="main" class="main">
 
     <div class="pagetitle row">
@@ -149,7 +149,7 @@ date_default_timezone_set("africa/Bujumbura");
     </div>
   </footer><!-- End Footer --> 
    <!-- Template Main JS File -->
-  <script src=<?=base_url("assets/js/main.js")?>></script>
+  <script src="assets/js/main.js"></script>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
